@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FaTimesCircle } from 'react-icons/fa'
 import './App.css'
 import { people } from './data'
 
@@ -9,6 +10,15 @@ const App = () => {
   const clearAll = () => {
     setCount(0)
     setBirthday([])
+  }
+
+  const remove = (id) => {
+    setBirthday((prev) => {
+      return prev.filter((person) => person.id !== id)
+    })
+    setCount((prev) => {
+      return prev - 1
+    })
   }
 
   return (
@@ -24,6 +34,7 @@ const App = () => {
             <h3>{name}</h3>
             <p>{age}</p>
           </div>
+          <FaTimesCircle className="times" onClick={() => remove(id)}/>
         </div>
       })}
 

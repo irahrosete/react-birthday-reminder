@@ -39,14 +39,22 @@ h3 {
 }
 
 p {
-  margin: 0 0 2rem 0;
-  /* display: inline-block; */
+  margin: 0 0 1rem 0;
 }
 
 .item {
   display: flex;
+  margin-top: 0.25rem;
+  border: 0.5px solid #aaa;
+  border-radius: 10px;
+  padding: 0.65rem;
 }
 
 .desc {
   padding-left: 1rem;
+  width: 60%;
+}
+
+.times {
+  color: firebrick;
 }
