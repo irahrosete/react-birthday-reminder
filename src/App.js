@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
+import { people } from './data'
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(5)
+  const [birthday, setBirthday] = useState(people)
+
+  const clearAll = () => {
+    setCount(0)
+    setBirthday([])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Birthday Reminder</h1>
+      <h2>{count} Birthdays Today</h2>
+      {birthday.map((person) => {
+        const { id, name, age, photo } = person
+        return <>
+          <div key={id}>
+            <img src={photo} alt={name} />
+            <h3>{name}</h3>
+            <p>{age}</p>
+          </div>
+        </>
+      })}
+      <button className="btn" onClick={clearAll}>Clear All</button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
