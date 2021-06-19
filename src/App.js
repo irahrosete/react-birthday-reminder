@@ -15,16 +15,18 @@ const App = () => {
     <div className="container">
       <h1>Birthday Reminder</h1>
       <h2>{count} Birthdays Today</h2>
+
       {birthday.map((person) => {
         const { id, name, age, photo } = person
-        return <>
-          <div key={id}>
-            <img src={photo} alt={name} />
+        return <div className="item" key={id}>
+          <img src={photo} alt={name} style={{borderRadius: "40px", width: "80px", height: "80px"}}/>
+          <div className="desc">
             <h3>{name}</h3>
             <p>{age}</p>
           </div>
-        </>
+        </div>
       })}
+
       <button className="btn" onClick={clearAll}>Clear All</button>
     </div>
   )

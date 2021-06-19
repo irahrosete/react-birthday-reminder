@@ -35,8 +35,18 @@ h1 {
 }
 h3 {
   margin: 1rem 0 0 0;
+  display: inline-block;
 }
 
 p {
   margin: 0 0 2rem 0;
+  /* display: inline-block; */
+}
+
+.item {
+  display: flex;
+}
+
+.desc {
+  padding-left: 1rem;
 }
